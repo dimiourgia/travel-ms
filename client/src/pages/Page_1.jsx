@@ -30,7 +30,7 @@ export default function Page_1(props){
     const formData = props.formData || {
         status: 'draft',
         state: 'section0',
-        createdBy: EMPLOYEE_ID,
+        createdBy: '',
         createdFor: [],
         travelAllocationHeaders:[],
         itinerary: {
