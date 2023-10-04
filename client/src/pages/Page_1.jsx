@@ -15,7 +15,7 @@ import TableItem from '../components/table/TableItem'
 export default function Page_1(props){
     
     //onboarding data...
-    const onBoardingData = props.onBoardingData
+    const onBoardingData = props.onBoardingData 
 
     const APPROVAL_FLAG = onBoardingData?.APPROVAL_FLAG
     const MANAGER_FLAG =  onBoardingData?.MANAGER_FLAG
@@ -27,7 +27,25 @@ export default function Page_1(props){
     const delegatedFor = onBoardingData?.delegatedFor
 
     //form data
-    const formData = props.formData
+    const formData = props.formData || {
+        status: 'draft',
+        state: 'section0',
+        createdBy: EMPLOYEE_ID,
+        createdFor: [],
+        travelAllocationHeaders:[],
+        itinerary: {
+          cities:[{from:null, to:null, departure: {date:null, time:null}, return: {date:null, time:null}}],
+          hotels:[],
+          cabs:[],
+          modeOfTransit:null,
+          travelClass:null,
+          needsVisa:false,
+          needsAirportTransfer:false,
+          needsHotel:false,
+          needsFullDayCabs:false,
+          tripType:{oneWayTrip:true, roundTrip:false, multiCityTrip:false}
+        }
+      }
     const setFormData = props.setFormData
 
     //details of current employee
