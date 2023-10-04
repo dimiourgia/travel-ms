@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import leftArrow_icon from '../assets/arrow-left.svg'
 import Select from '../components/common/Select'
 import ObjectSelect from '../components/custom/page_1/ObjectSelect'
-import MultiSearch from '../components/common/MultiSearch'
 import Search from '../components/custom/page_1/Search'
 import Button from '../components/common/Button'
 import { useNavigate } from 'react-router-dom'
@@ -10,12 +9,13 @@ import Icon from '../components/common/Icon'
 import InputPercentage from '../components/common/InputPercentage'
 import Checkbox from '../components/common/Checkbox'
 import TableItem from '../components/table/TableItem'
+import { FormContext } from '../formContext'
 
+export default function Page_1(){
 
-export default function Page_1(props){
-    
+    const {formData, setFormData, onBoardingData } = useContext(FormContext)
+
     //onboarding data...
-    const onBoardingData = props.onBoardingData 
 
     const APPROVAL_FLAG = onBoardingData?.APPROVAL_FLAG
     const MANAGER_FLAG =  onBoardingData?.MANAGER_FLAG
@@ -25,28 +25,6 @@ export default function Page_1(props){
     const travelAllocationHeaders = onBoardingData?.travelAllocationHeaderOptions 
     const tripPurposeOptions = onBoardingData?.tripPurposeOptions
     const delegatedFor = onBoardingData?.delegatedFor
-
-    //form data
-    const formData = props.formData || {
-        status: 'draft',
-        state: 'section0',
-        createdBy: '',
-        createdFor: [],
-        travelAllocationHeaders:[],
-        itinerary: {
-          cities:[{from:null, to:null, departure: {date:null, time:null}, return: {date:null, time:null}}],
-          hotels:[],
-          cabs:[],
-          modeOfTransit:null,
-          travelClass:null,
-          needsVisa:false,
-          needsAirportTransfer:false,
-          needsHotel:false,
-          needsFullDayCabs:false,
-          tripType:{oneWayTrip:true, roundTrip:false, multiCityTrip:false}
-        }
-      }
-    const setFormData = props.setFormData
 
     //details of current employee
     

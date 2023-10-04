@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { FormContext } from "./formContext";
 //import axios from 'axios'
 
 import "./App.css";
@@ -109,7 +110,11 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Page_1 />} />
-        <Route path='/section0' element={<Page_1 formData={formData} setFormData={setFormData} onBoardingData={onBoardingData} />} />
+        <Route path='/section0' element={
+          <FormContext.Provider value={{ formData, setFormData, onBoardingData }}>
+            <Page_1/> 
+          </FormContext.Provider>
+          } />
         <Route path='/section1' element={<Page_2 formData={formData} setFormData={setFormData} onBoardingData={onBoardingData} />} />
         <Route path='/section2' element={<Page_3 formData={formData} setFormData={setFormData} onBoardingData={onBoardingData} />} />
         <Route path='/section3' element={<Page_4 formData={formData} setFormData={setFormData} onBoardingData={onBoardingData} />} />
