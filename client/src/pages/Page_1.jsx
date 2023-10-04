@@ -93,7 +93,7 @@ export default function Page_1(props){
     },[selectDelegatorTeamMembers])
     
 
-    const [selectedTravelAllocationHeaders, setSelectedTravelAllocationHeaders] = useState(formData.travelAllocationHeaders)
+    const [selectedTravelAllocationHeaders, setSelectedTravelAllocationHeaders] = useState(formData?.travelAllocationHeaders)
 
     //if employee is a manager
     const [bookingForSelf, setBookingForSelf] = useState(true)
@@ -201,7 +201,7 @@ export default function Page_1(props){
         createdFor: travelRequestCreatedFor,
         teamMembers: selectedTeamMembers,
         travelAllocationHeaders: selectedTravelAllocationHeaders,
-        approvers: formData.approvers
+        approvers: formData?.approvers
     }
 
 
@@ -238,7 +238,7 @@ export default function Page_1(props){
                         title='Select trip purpose'
                         placeholder='Select puropse of trip'
                         options={tripPurposeOptions}
-                        currentOption={formData.tripPurpose}
+                        currentOption={formData?.tripPurpose}
                         onSelect = {(option)=> {updateTripPurpose(option)}} />
                 </div>
 
